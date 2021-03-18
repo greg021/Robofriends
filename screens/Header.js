@@ -10,6 +10,7 @@ export default Header = () => {
       style={{
         flexDirection: 'row',
         justifyContent: 'center',
+        height: 40,
       }}>
       <Title style={{color: 'white'}}>Robofriends</Title>
     </Appbar.Header>

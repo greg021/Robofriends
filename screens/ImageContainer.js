@@ -1,24 +1,34 @@
 import React from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, Share, TouchableOpacity} from 'react-native';
 
 export default function ImageContainer({name}) {
+  const URL = `https://robohash.org/${name}.png`;
+
+  const shareMessage = () => {
+    Share.share({
+      url: URL,
+    })
+      .then((result) => console.log(result))
+      .catch((errorMsg) => console.log(errorMsg));
+  };
   return (
     <View
       style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        marginBottom: 200,
-        marginTop: 10,
+        borderColor: '#0088ff',
+        borderRadius: 15,
+        borderStyle: 'solid',
+        borderWidth: 2,
+
+        overflow: 'hidden',
+        position: 'absolute',
+        top: 180,
+        right: 70,
+        left: 70,
       }}>
       <View
         style={{
-          borderColor: '#0088ff',
-          borderRadius: 15,
-          borderStyle: 'solid',
-          borderWidth: 2,
-          overflow: 'hidden',
-          maxWidth: 204,
+          flex: 1,
+          alignItems: 'center',
         }}>
         <Image
           style={{
@@ -26,24 +36,40 @@ export default function ImageContainer({name}) {
             height: 200,
           }}
           source={{
-            uri: `https://robohash.org/${name}.png`,
+            uri: URL,
           }}
         />
-        <View
+      </View>
+      <View style={{}}>
+        <Text
           style={{
-            marginTop: 5,
+            color: 'white',
+            backgroundColor: '#0088ff',
+            fontSize: 16,
+            textAlign: 'center',
+            padding: 5,
           }}>
+          {name}
+        </Text>
+      </View>
+      <View>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={{
+            justifyContent: 'center',
+            padding: 5,
+            backgroundColor: '#00ff88',
+          }}
+          onPress={shareMessage}>
           <Text
             style={{
-              color: 'white',
-              backgroundColor: '#0088ff',
-              fontSize: 20,
+              color: '#002',
               textAlign: 'center',
-              padding: 5,
+              fontSize: 16,
             }}>
-            {name}
+            Share {name}
           </Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

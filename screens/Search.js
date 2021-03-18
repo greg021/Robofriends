@@ -17,7 +17,7 @@ export default Search = ({setName}) => {
       <Button
         theme={{colors: {primary: '#0099ff'}}}
         mode="contained"
-        style={{margin: 20}}
+        style={{marginVertical: 10, marginHorizontal: 50}}
         onPress={() => setName(text)}>
         <Text style={{color: 'white'}}>Search Robot</Text>
       </Button>

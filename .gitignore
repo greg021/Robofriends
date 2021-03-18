@@ -3,6 +3,7 @@
 .vscode/
 __tests__
 android/app/build
+android/app/release
 
 # OSX
 #
