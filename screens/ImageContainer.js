@@ -1,15 +1,16 @@
 import React from 'react';
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import Share from 'react-native-share';
-import img from './Share';
+import memes from '../assets/base64';
 
 export default function ImageContainer({name}) {
-  const URL = `https://robohash.org/${name}.png`;
+  const URL = `https://robohash.org/${name}`;
 
   const myCustomShare = async () => {
     const shareOptions = {
       message: 'The Anonymous Robot',
-      url: img,
+      url: URL,
+      // url: URL, // if image is a base64 image ( from database )
     };
     try {
       const shareResponse = await Share.open(shareOptions);
@@ -66,7 +67,7 @@ export default function ImageContainer({name}) {
           style={{
             justifyContent: 'center',
             padding: 5,
-            backgroundColor: '#00ff88',
+            backgroundColor: '#00f288',
           }}
           onPress={myCustomShare}>
           <Text
