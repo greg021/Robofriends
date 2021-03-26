@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StatusBar, Text, TouchableOpacity, View, Share} from 'react-native';
+import {StatusBar} from 'react-native';
 import Search from './screens/Search';
 import ImageContainer from './screens/ImageContainer';
 
